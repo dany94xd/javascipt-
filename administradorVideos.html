@@ -1,0 +1,198 @@
+﻿<!DOCTYPE html>
+<html lang="es-EC">
+<head>
+	<meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, user-scalable=no,initial-scale=.5, maximum-scale=.5, minimum-scale=.5" />
+
+     <!--titulo del proyecto-->
+    <title>K I A R A </title>
+    <link rel="icon" type="image/png" href="recursos/imagenes/favicon.png" type="image/x-icon">
+	<!--titulo del proyecto-->
+    
+    <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="js/jquery.validate.min.js"></script>
+    <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+	
+	<!-- system start -->
+	<script type="text/javascript" src="js/01-datos.js"></script>
+	<script type="text/javascript" src="js/03-start.js"></script>
+
+    <script type="text/javascript" src="js/jsonImagenes.js"></script>
+    <script type="text/javascript" src="js/AdministrarImagenes.js"></script>
+
+    <script type="text/javascript" src="js/jsonAudio.js"></script>
+    <script type="text/javascript" src="js/AdministrarAudio.js"></script>
+
+    <script type="text/javascript" src="js/kiara.js"></script>
+
+	
+	<!-- css -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="all"/> 
+    <link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="css/common.css" />
+
+</head>
+	 <!--/////////////////////////-->
+<body >
+	
+ <div id="CajaGrande">
+ <!-- Header Area -->
+<div id="nav">    
+<nav class="navbar navbar-new" role="navigation"> <!-- Navigation -->
+
+  <!-- Navbar content -->
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="index.html">K I A R A </a>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="nav navbar-nav navbar-right text-center">
+      <li class="nav-item active">
+        <a class="nav-link" href="index.html"><i class="service-icon fa fa-home"></i>&nbsp;Inicio</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+</nav>
+</div>    
+</div>
+   <!---//////////////////////////////////////////////////////////////////////////////////-->
+<div class="container">
+   <div>
+        <form method="post" role="form" id="register-form" autocomplete="off" action="submit.html">
+            
+         <div class="container"> 
+        <div class="col-md-6 col-md-offset-3 "> 
+            <h3>MEN&Uacute; DE OPCIONES</h3>  
+           </div>
+          
+        <div id="tabs">
+             <div class="col-md-6 col-md-offset-3 ">
+           
+            <a href="#" tabindex="0">Cuento</a>
+           <a href="#" tabindex="1">P&aacute;ginas</a>
+           <a href="#" tabindex="2">Preguntas</a>
+        </div>         
+        </div>
+        </div>
+           <!---//////////////////////////////////////////////////////////////////////////////////-->  
+       <div class="container">       
+        <div id="tab-0" class="tab">
+            <div class="form-group">
+                <div class="col-md-6 col-md-offset-3 ">
+                    <label for="name">C&oacute;digo: </label>
+                    <input id="codigo" class="form-control" placeholder="">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-6 col-md-offset-3 ">
+                    <label for="name">T&iacute;tulo: </label>
+                    <input id="titulo" type="text" class="form-control" placeholder=" ">
+                    <span class="help-block" id="error"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-6 col-md-offset-3 ">
+                    <label for="name">Descripci&oacute;n: </label>
+                    <input id="descripcion" type="text" class="form-control" placeholder="">
+                    <span class="help-block" id="error"></span>
+                </div>
+            </div>
+            
+             <div class="form-group">
+                <div class="col-md-6 col-md-offset-3 ">
+                    <label for="name">Cr&eacute;ditos: </label>
+                    <input id="creditos" type="text" class="form-control" placeholder="">
+                    <span class="help-block" id="error"></span>
+                </div>
+            </div>
+            
+            
+            <div class="form-group">
+                <div class="col-md-6 col-md-offset-3 ">
+                    <input type="radio" id="estadoA" name="estado" value="A" /><label for="estadoA">Activo</label>
+                    <input type="radio" id="estadoI" name="estado" value="I" checked="checked" /><label for="estadoI">Inactivo</label>
+                </div>
+            </div>
+                  
+        </div>
+         
+              
+         <!-- -->   
+          <div class="col-md-6 col-md-offset-3 ">   
+            <div id="tab-1" class="tab hid">
+                <input type="button" id="btnNuevaPagina" value="Nueva pagina"/>
+                <div id="paginas" ></div>            
+            </div>
+        </div>
+               
+        <div id="tab-2" class="tab hid">
+            <input type="button" id="btnNuevaPregunta" value="Nueva pregunta" />  
+                <div id="preguntas"></div>
+        </div>
+        <!--  -->
+      </div>   
+  </form>
+      
+       
+        <br />
+		<br />
+        <div class="container">    
+		<div class="col-md-6 col-md-offset-3 ">
+            <button type="button" id="guardar" class="btn btn-info">GUARDAR</button>
+			
+            <button type="button" id="cancelar" class="btn btn-info">CANCELAR</button>
+		</div>
+        </div>
+</div>
+		
+	   <!-- Maquetación administración -->
+    <div class="col-md-6 col-md-offset-3 ">
+        <br>
+        <h1> LISTA DE CUENTOS 
+            <button type="button" id="nuevo" class="btn btn-info">NUEVO</button>
+            <button type="button" id="exportar" class="btn btn-info">EXPORTAR</button>
+         </h1>
+
+        <table id="demo">
+            <thead>
+                <tr>
+                    <th> C&Oacute;DIGO </th>
+                    <th> T&Iacute;TULO </th>
+                    <th> DESCRIPCI&Oacute;N </th>
+                    <th> CR&Eacute;DITOS </th>
+                    <th> EDITAR </th>
+                    <th> ELIMINAR </th>
+                </tr>
+            <tbody></tbody>
+        </table>
+
+    </div>
+</div>
+		
+		
+	
+	
+    <!-- Footer -->
+    <footer>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3 text-center">
+           <em>ESPOL-EDCOM. Derechos Reservados 2017.  GMS S.A. - KIARA V.1.0.</em>
+            
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- /Footer -->
+    
+
+
+</body>
+</html>
