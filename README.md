@@ -1,2 +1,0 @@
-# javascipt-
-Gabriela Requena
