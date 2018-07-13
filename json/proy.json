@@ -1,0 +1,76 @@
+{	
+	"video":[
+        {
+			"id":"2",
+			"titulo":"COPIA DEL PRIMERO",
+			"descripcion":"Recreación y reconocimiento de los animales",
+			"creditos":" creado por: HECTOR LUIS",							
+            "preguntas":[
+                {
+                    "pregunta":"¿Qué animal es el que ladra",
+                    "imagenes":[
+	                    {
+	                    	"imagen":"perro",
+	                    	"foto":"recursos/videos/imagenes/imagen_1_1_1.jpg"
+	                    },
+	                    {
+	                    	"imagen":"gato",
+	                    	"foto":"recursos/videos/imagenes/imagen_2_1_1.jpg"
+	                    }	                  
+                    ],
+                    "respuesta":"1"
+                },
+                {
+                    "pregunta":"¿Qué animal hace beeeeee",
+                    "imagenes":[
+	                    {
+	                    	"imagen":"puma",
+	                    	"foto":"recursos/videos/imagenes/imagen_1_2_1.jpg"
+	                    },
+	                    {
+	                    	"imagen":"leopardo",
+	                    	"foto":"recursos/videos/imagenes/imagen_2_2_1.jpg"
+	                    }	                  
+                    ],
+                    "respuesta":"2"
+                },
+            ]
+        },
+        {
+			"id":"1",
+			"titulo":"Visita a la granja",
+			"descripcion":"Recreación y reconocimiento de los animales",
+			"creditos":" creado por: HECTOR LUIS",							
+            "preguntas":[
+                {
+                    "pregunta":"¿Qué animal es el que ladra",
+                    "imagenes":[
+	                    {
+	                    	"imagen":"perro",
+	                    	"foto":"recursos/videos/imagenes/imagen_1_1_1.jpg"
+	                    },
+	                    {
+	                    	"imagen":"gato",
+	                    	"foto":"recursos/videos/imagenes/imagen_2_1_1.jpg"
+	                    }	                  
+                    ],
+                    "respuesta":"1"
+                },
+                {
+                    "pregunta":"¿Qué animal hace beeeeee",
+                    "imagenes":[
+	                    {
+	                    	"imagen":"puma",
+	                    	"foto":"recursos/videos/imagenes/imagen_1_2_1.jpg"
+	                    },
+	                    {
+	                    	"imagen":"leopardo",
+	                    	"foto":"recursos/videos/imagenes/imagen_2_2_1.jpg"
+	                    }	                  
+                    ],
+                    "respuesta":"2"
+                },
+            ]
+        }
+    ]
+}
