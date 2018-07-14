@@ -1,0 +1,289 @@
+var idxVideo= "";
+
+/*Funcion inicial al cargar la pagina*/
+$(function () {
+    
+    mostrar();
+
+    nuevo();
+    
+    $("#nuevo").click(function (e) {
+        nuevo();
+        return false;
+    });
+
+    $("#guardar").click(function (e) {
+        var obj;
+        if (idxVideo === "") {
+            obj = new Object();
+        } else {
+            obj = objJSON.contenido[0].video[idxVideo];
+        }
+
+        obj.codigo = $("#codigo").val();
+        obj.titulo = $("#titulo").val();
+        obj.descripcion = $("#descripcion").val();
+        obj.creditos = $("#creditos").val();
+         obj.url = $("#url").val();
+         obj.portada=$("#portada").val();
+
+
+
+        var preguntas = [];
+        $.each($("#pregunta div"), function (i, v) {
+            var pregunta = new Object();
+            pregunta.id = "";
+            pregunta.pregunta = $(v).find("input.pre").val();
+            pregunta.imagencorrecta= $(v).find("textarea").val();
+            pregunta.imagenincorrecta=$(v).find("textarea").val();;
+            pregunta.audio=$(v).find("source").attr("src");
+
+            pregunta.respuesta = $(v).find("input.res").val();
+
+
+           /* pregunta.opciones = [];
+            $.each($(v).find("input.opc"), function (j, w) {
+                var opc = new Object();
+                opc.opcion = $(w).val();
+                pregunta.opciones.push(opc);
+            });
+            pregunta.respuesta = $(v).find("input.res").val();*/
+
+            preguntas.push(pregunta);
+        });
+
+        obj.preguntas = preguntas;
+
+console.log(obj.preguntas);
+
+
+        if (!(obj.codigo)) {
+            alert("Debe ingresar el código del cuento.");
+            return;
+        }
+
+   
+        if (idxVideo === "") {
+            objJSON.contenido[0].video.push(obj);
+        }
+
+        grabarArchivoJSON(objJSON);
+
+        mostrar();
+
+        nuevo();
+
+        return false;
+    });
+
+    $("#cancelar").click(function (e) {
+        nuevo();
+        return false;
+    });
+
+    $("#exportar").click(function (e) {
+        exportJSON();
+        return false;
+    });
+
+////////////////boton nueva pregunta////////////////////////////////
+    $("#btnNuevaPregunta").click(function (e) {
+        var i = $("#pregunta div").length;
+        var v = new Object();
+        v.pregunta = "";
+        v.imagencorrecta="";
+        v.imagenincorrecta="";
+        v.audio="";
+
+
+        // v.opciones = [];
+        // v.opciones.push(new Object());
+        // v.opciones.push(new Object());
+        // v.opciones.push(new Object());
+        // v.opciones[0].opcion = "";
+        // v.opciones[1].opcion = "";
+        // v.opciones[2].opcion = "";
+        v.respuesta = "";
+        visualizarPregunta(i, v);
+    });
+
+});
+
+
+/////////////////funcion para mostrar segun el tab (1.- video) , (2.-Pregunta) /////////////////////////////
+var mostrar = function () {
+    $.each($("#tabs a"), function (i, v) {
+        $(v).click(function (e) {
+            var tabindex = $(e.target).attr("tabindex");
+            $(".tab:not(hid)").addClass("hid");
+            $("#tab-" + tabindex).removeClass("hid");
+            return false;
+        });
+    });
+
+
+////////////for each para llenar la tabla estructura debe ser segun las clases/////////////////////////////////
+    var biblioadmin = "";
+
+    $.each(objJSON.contenido[0].video, function (index, value) { //"<td>" + "</td>"
+        biblioadmin+= "<tr id='c" + index + "'><td>" + value.codigo + "</td>" + "<td>" + value.titulo + "</td>" + "<td>" + value.descripcion + "</td>" + "<td>" + value.creditos + "</td>" +"<td>" +value.url+"</td>"+"<td>"+value.portada+"</td>"+
+	"<td><a href='#' class='edt' value='" + index + "'>Editar</a></td><td><a href='#' class='del' value='" + index + "'>Eliminar</a></td><tr>";
+    });
+
+    $("#demo tbody").html("");
+    $("#demo tbody").append(biblioadmin);
+
+///////////////////////for each de edicion de la tabla ////////////////////////////////////////////////    
+
+    $.each($("#demo tbody a.edt"), function (i, v) {
+        $(v).click(function (e) {
+            var id = $(e.target).attr("value");
+            idxVideo = id;
+
+            var video = objJSON.contenido[0].video[id];
+            $("#codigo").val(video.codigo);
+            $("#titulo").val(video.titulo);
+            $("#creditos").val(video.creditos);
+            $("#descripcion").val(video.descripcion);
+            $("#url").val(video.url);
+            $("#portada").val(video.portada);
+            $("#pregunta").html("");
+            $.each(video.preguntas, function (i, v) {
+                visualizarPregunta(i, v);
+            });
+
+            return false;
+        });
+    });
+//////////////////graba el objeto del localstorage en el id de demo///////////
+    $("#demo tbody a.del").click(function (e) {
+        var id = $(e.target).attr("value");
+        idxVideo = id;
+
+        //var cuento = objJSON.contenido[0].cuento[id];
+        objJSON.contenido[0].video.splice(id, 1);
+
+        grabarArchivoJSON(objJSON);
+
+        mostrar();
+
+        return false;
+    });
+}
+///////////////////////////////////////////////////////////funcion para contrui la nueva pregunta///////////////////////////////////////////////////////////////////////////
+
+var visualizarPregunta= function(i,v){
+
+var lst = [];
+lst.push("<div>");
+    lst.push("<label>Pregunta#</label> <input type='text' class='npre' value='" + (i + 1) + "' /><br />");
+    lst.push("<label>Pregunta</label> <input type='text' class='pre' value='");
+    lst.push(v.pregunta);
+    lst.push("'/><br />");
+
+////////////////////////////////////////////////////////imagen coreccta/////////////////////////////////    
+lst.push("<label>Imagen Correcta</label> <select img='img-" + i + "'>");
+ $.each(jsonImagenes.archivos, function (i, w) {
+        lst.push("<option value='");
+        lst.push(jsonImagenes.urlBase + w);
+        lst.push("'");
+        if (v.imagencorrecta === (jsonImagenes.urlBase + w)) {
+            lst.push("selected='selected'");
+        }
+        lst.push(">");
+        lst.push(w);
+        lst.push("</option>");
+    });
+ lst.push("</select>");
+    lst.push("<img id='img-" + i + "' class='img' src='");
+    lst.push(v.imagencorrecta);
+    lst.push("' /><br />");
+///////////////////////////////////////////////////////image incorrecta//////////////////////////////
+lst.push("<label>Imagen incorrecta</label> <select img='img-" + i + "'>");
+ $.each(jsonImagenes.archivos, function (i, w) {
+        lst.push("<option value='");
+        lst.push(jsonImagenes.urlBase + w);
+        lst.push("'");
+        if (v.imagenincorrecta === (jsonImagenes.urlBase + w)) {
+            lst.push("selected='selected'");
+        }
+        lst.push(">");
+        lst.push(w);
+        lst.push("</option>");
+    });
+ lst.push("</select>");
+    lst.push("<img id='img-" + i + "' class='img' src='");
+    lst.push(v.imagenincorrecta);
+    lst.push("' /><br />");
+
+
+
+////////////////////////////////////////respuesta/////////
+
+ lst.push("<br />");
+ lst.push("<br />");
+ lst.push("<label>Respuesta:</label>");
+lst.push("<input type='text' class='res' value='" + v.respuesta + "'/>");
+
+/////////////////////////////////////////////////audio pregunta////////////////////////////////
+
+  lst.push("<label>Audio Pregunta</label> <select aud='aud-" + i + "'>");
+    $.each(jsonAudio.archivos, function (i, w) {
+        lst.push("<option value='");
+        lst.push(jsonAudio.urlBase + w);
+        lst.push("'");
+        if (v.audio === (jsonAudio.urlBase + w)) {
+            lst.push("selected='selected'");
+        }
+        lst.push(">");
+        lst.push(w);
+        lst.push("</option>");
+    });
+    lst.push("</select>");
+
+    lst.push("<audio controls=''><source id='aud-" + i + "' src='");
+    lst.push(v.audio);
+    lst.push("' type='audio/mpeg'></audio>");
+
+    lst.push("</div><br />");
+
+    lst.push("<hr />");
+     var pag = $(lst.join(""));
+    $("#pregunta").append(pag);
+
+    $.each(pag.find("select"), function (i, v) {
+        $(v).change(function (e) {
+            var img = $(e.target).attr("img");
+            if (typeof img !== "undefined") {
+                $("#" + img).attr("src", $(e.target).val())
+            }
+
+            var aud = $(e.target).attr("aud");
+            if (typeof aud !== "undefined") {
+                var pd = $("#" + aud).parents("audio");
+
+                var lst = [];
+                lst.push("<audio controls=''><source id='" + aud + "' src='");
+                lst.push($(e.target).val());
+                lst.push("' type='audio/mpeg'></audio>");
+                pd.replaceWith($(lst.join("")));
+            }
+        });
+    });
+
+
+}
+
+/////////////////////nuevo elemento /////////////////////////////////
+
+var nuevo = function () {
+    idxVideo = "";
+    $("#codigo").val("");
+    $("#titulo").val("");
+    $("#descripcion").val("");
+    $("#creditos").val("");
+    $("#url").val("");
+    $("#preguntas").html("");
+};
+
+
