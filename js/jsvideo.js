@@ -1,4 +1,15 @@
- // declare variable
+window.onload = function(){
+  var urlVideo = window.opener.document.getElementById("urlVideo").innerHTML;
+
+  var cadena = "<source src='" + urlVideo + "' type='video/mp4'>"
+  //alert(urlVideo);
+  document.getElementById("video").innerHTML=cadena;
+  //alert(document.getElementById("vid").getAttribute("src"));
+}
+
+
+
+
       var myVideo = document.querySelector("#video");
 
       var vid = document.getElementById("video");
@@ -7,16 +18,15 @@
       //};
 
       vid.onended = function() {
-         // alert("The video has finished");
+         //alert("The video has finished");
           //  document.getElementById('actividad').style.display='block';
- mostrar();
+      mostrar();
       };
 
 
 
        function mostrar() {
-
-       document.getElementById('actividad').style.display='block';
+          document.getElementById('actividad').style.display='block';
       //   // body...
       }
 
