@@ -8,6 +8,11 @@ $(function () {
     nuevo();
     
     $("#nuevo").click(function (e) {
+
+ //     document.getElementById('tab-0').style.display='block';
+ // document.getElementById('tab-1').style.display='block';
+
+ mostrartabla();
         nuevo();
         return false;
     });
@@ -37,7 +42,6 @@ $(function () {
             pregunta.imagencorrecta= $(v).find("textarea").val();
             pregunta.imagenincorrecta=$(v).find("textarea").val();;
             pregunta.audio=$(v).find("source").attr("src");
-
             pregunta.respuesta = $(v).find("input.res").val();
 
 
@@ -69,6 +73,12 @@ console.log(obj.preguntas);
 
         grabarArchivoJSON(objJSON);
 
+
+
+ //     document.getElementById('tab-0').style.display='none';
+ // document.getElementById('tab-1').style.display='none';
+
+ ocultartabla();
         mostrar();
 
         nuevo();
@@ -77,6 +87,11 @@ console.log(obj.preguntas);
     });
 
     $("#cancelar").click(function (e) {
+        
+ // document.getElementById('tab-0').style.display='block';
+ // document.getElementById('tab-1').style.display='block';
+
+  ocultartabla();
         nuevo();
         return false;
     });
@@ -85,6 +100,29 @@ console.log(obj.preguntas);
         exportJSON();
         return false;
     });
+
+
+
+var mostrartabla=function(){
+
+document.getElementById('tab-0').style.display='block';
+ document.getElementById('tab-1').style.display='block';
+}
+
+var ocultartabla=function(){
+
+document.getElementById('tab-0').style.display='none';
+ document.getElementById('tab-1').style.display='none';
+
+}
+
+
+//  $("#mostrar").click(function(e)){
+// document.getElementById('tab-0').style.dispaly='block';
+// document.getElementById('tab-1').style.dispaly='block';
+
+//  }
+
 
 ////////////////boton nueva pregunta////////////////////////////////
     $("#btnNuevaPregunta").click(function (e) {
@@ -137,6 +175,10 @@ var mostrar = function () {
 
     $.each($("#demo tbody a.edt"), function (i, v) {
         $(v).click(function (e) {
+
+    document.getElementById('tab-0').style.display='block';
+ document.getElementById('tab-1').style.display='block';
+
             var id = $(e.target).attr("value");
             idxVideo = id;
 
@@ -175,7 +217,7 @@ var mostrar = function () {
 var visualizarPregunta= function(i,v){
 
 var lst = [];
-lst.push("<div>");
+lst.push("<div  style=' overflow-y:scroll;height:200px;width:300px;'>");
     lst.push("<label>Pregunta#</label> <input type='text' class='npre' value='" + (i + 1) + "' /><br />");
     lst.push("<label>Pregunta</label> <input type='text' class='pre' value='");
     lst.push(v.pregunta);
@@ -224,6 +266,7 @@ lst.push("<label>Imagen incorrecta</label> <select img='img-" + i + "'>");
  lst.push("<br />");
  lst.push("<label>Respuesta:</label>");
 lst.push("<input type='text' class='res' value='" + v.respuesta + "'/>");
+ lst.push("<br />");
 
 /////////////////////////////////////////////////audio pregunta////////////////////////////////
 
@@ -277,13 +320,19 @@ lst.push("<input type='text' class='res' value='" + v.respuesta + "'/>");
 /////////////////////nuevo elemento /////////////////////////////////
 
 var nuevo = function () {
+
+
     idxVideo = "";
     $("#codigo").val("");
     $("#titulo").val("");
     $("#descripcion").val("");
     $("#creditos").val("");
     $("#url").val("");
+    $("#portada").val("");
     $("#preguntas").html("");
+
+    // document.getElementById('tab-0').style.display='block';
+ //document.getElementById('tab-1').style.display='block';
 };
 
 
