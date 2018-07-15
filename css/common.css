@@ -383,17 +383,17 @@ table {
 }
 
 th{
+     font-size: 18px;
+	letter-spacing: 1px;
+	color:#3f888f;  
    
-      font-size: 18px;
-	letter-spacing: 1px; 
-   
-  
 }
 
 td{
-   
-      font-size: 14px;
+
+    font-size: 14px;
 	letter-spacing: 1px;
+	color:#8c004b;
   
 }
 
