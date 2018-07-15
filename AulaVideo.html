@@ -8,12 +8,14 @@
     <title>N A D I R</title>
    <link rel="icon" type="image/png" href="recursos/imagenes/favicon.png" type="image/x-icon">
  <!-- Bootstrap core CSS -->
+   <title>N A D I R</title>
+    <link rel="icon" type="image/png" href="recursos/imagenes/favicon.png" type="image/x-icon">
+    <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="all"/>
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/common.css" />
-    <link rel="stylesheet" href="css/commonConocenos.css" />
+        <link rel="stylesheet"  href="css/cssVideo.css" type="text/css" media="all"/> 
      <link rel="stylesheet" href="css/cssNavegador.css"> 
-    <link rel="stylesheet"  href="css/cssVideo.css" type="text/css" media="all"/> 
 
   <!-- Scripts -->
    <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js" integrity="sha384-3LK/3kTpDE/Pkp8gTNp2gR/2gOiwQ6QaO7Td0zV76UFJVhqLl4Vl3KL1We6q6wR9" crossorigin="anonymous"></script>
@@ -21,11 +23,16 @@
     <script type="text/javascript"  src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/jquery.validate.min.js"></script> 
 
-   </head>
+    <script type="text/javascript" src="js/jsvideo.js"></script>
+
+  </head>
 
 <body>
+  
+  <div id="nav">    
+  <nav class="navbar navbar-new" role="navigation"> <!-- Navigation -->
 
-  <!-- NAVEGADOR --> 
+    <!-- NAVEGADOR --> 
 <nav class="navbar navbar-default">
   <div class="container">
     <div class="navbar-header">
@@ -34,9 +41,11 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-     <div class="izquierda"><a href="index.html"><img src="recursos/imagenes/logoNav.png" alt="" width="60" height="40"></a></div>
+    <div class="izquierda"><a href="index.html"><img src="recursos/imagenes/logoNav.png" alt="" width="60" height="40"></a></div>
     <a class="navbar-brand" href="index.html">N A D I R</a>
     </div>
+
+
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-brand">
         <li><a href="index.html"><i class="service-icon fa fa-home"></i>&nbsp;Inicio</a></li>
@@ -46,32 +55,27 @@
       </ul>
     </div>
   </div>
-</nav>  
-  <!-- NAVEGADOR --> 
+</nav>
+</div>    
    <!---//////////////////////////////////////////////////////////////////////////////////-->
-   
+
+
 <div id="videocontainer">
-<h2><center>ANIMALES DE LA GRANJA</center></h2>
+<!--h2><center>ANIMALES DE LA GRANJA</center></h2-->
 
     <!-- HTML5 tag video -->
     <video id="video"   controls="">
    
-      <source src="recursos/video/video_1.ogv" type="video/ogv">
-      <source src="recursos/video/video_1.webm" type="video/webm"> 
-      <source src="recursos/video/video_1.mp4" type="video/mp4"> 
-    </video>
-   
+    </video>  
     <!-- control buttons -->
-    <button class="botonVideo" onclick="playPause()">PLAY/PAUSE</button>
-   
+    <button class="botonVideo" onclick="playPause()">PLAY/PAUSE</button>   
 
   </div>
 
-
- <script src="js/jsvideo.js"></script>
 <br>
 <br>
 
+<br>
   <!-- Footer -->
     <footer>
     
