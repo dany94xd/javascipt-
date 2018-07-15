@@ -53,7 +53,7 @@ h3,
 }
 */
 h1 {
-    font-size: 4em;
+    font-size: 3em;
     margin: 0.67em 0;
 }
 
@@ -113,7 +113,7 @@ html {
 /*contenedor central */
 body {
     font-family: Gorditas; 
-    font-size: 14px; 
+    font-size: 16px; 
     background: #f9f9f9;
 	font-weight: 300;
 	color: orange;
@@ -233,13 +233,13 @@ img, video {
   display: inline-block;
   padding: 6px 12px;
   margin-bottom: 0;
-  font-size: 30px;
+  font-size: 22px;
   font-weight: normal;
   line-height: 1.428571429;
   text-align: center;
   vertical-align: middle;
   cursor: pointer;
-  border: 4px solid transparent;
+  border: 1px solid transparent;
   border-radius: 4px;
   white-space: nowrap;
   -webkit-user-select: none;
@@ -253,7 +253,7 @@ img, video {
 .btn-top {
 color:orange;
 background:none repeat scroll 0 0 rgba(1, 1, 0, 0.57);
-border-color:#cccccc;
+border-color:orange;
 }
 
 .btn-top:hover,
@@ -804,12 +804,12 @@ ul {
 }
 
 
-.hola {
-    background-color: yellow;
+.holaIndex {
+ 
     padding: 5px;
     display: none;
   color: #428bca;
-  background-color: orange;
+ 
   border-color: #adadad;
 }
     
@@ -817,3 +817,6 @@ a:hover + div {
     display:  list-item;
 }
 
+.izquierda{
+  margin-left: 20px; 
+}
