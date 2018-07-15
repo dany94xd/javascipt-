@@ -1,73 +1,97 @@
-﻿<!DOCTYPE html>
-<html lang="es-EC">
-<head>
-	<meta charset="utf-8">
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, user-scalable=no,initial-scale=.5, maximum-scale=.5, minimum-scale=.5" />
+﻿<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <!--titulo del proyecto-->
 
-     <!--titulo del proyecto-->
-    <title>N A D I R  </title>
+    <title>N A D I R</title>
     <link rel="icon" type="image/png" href="recursos/imagenes/favicon.png" type="image/x-icon">
-	<!--titulo del proyecto-->
-    
-    <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
-    <script type="text/javascript" src="js/jquery.validate.min.js"></script>
-    <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <!--<script src="js/admin.js"></script>--> 
-	
-	<!-- system start -->
-	 <script type="text/javascript" src="js/01-datos.js"></script>
-	<script type="text/javascript" src="js/03-start.js"></script> 
-
-    <script type="text/javascript" src="js/jsonImagenes.js"></script>
-    <script type="text/javascript" src="js/AdministrarImagenes.js"></script>
-
-    <script type="text/javascript" src="js/jsonAudio.js"></script>
-    <script type="text/javascript" src="js/AdministrarAudio.js"></script>
-
-    <script type="text/javascript" src="js/kiara.js"></script>
- 
-	
-	<!-- css -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="all"/> 
+ <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="all"/>
     <link rel="stylesheet" href="css/style.css" />
-	<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" />
-	<link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/cssNavegador.css"> 
+    <link rel="stylesheet" href="css/w3.css"> 
+   
+      <!-- Scripts -->
+    <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js" integrity="sha384-3LK/3kTpDE/Pkp8gTNp2gR/2gOiwQ6QaO7Td0zV76UFJVhqLl4Vl3KL1We6q6wR9" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+    <script type="text/javascript"  src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jquery.validate.min.js"></script> 
 
-</head>
-	 <!--/////////////////////////-->
-<body >
-	
- <div id="CajaGrande">
- <!-- Header Area -->
-<div id="nav">    
-<nav class="navbar navbar-new" role="navigation"> <!-- Navigation -->
+   </head>
 
-  <!-- Navbar content -->
-<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <a class="navbar-brand" href="index.html">N A D I R </a>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="nav navbar-nav navbar-right text-center">
-      <li class="nav-item active">
-        <a class="nav-link" href="index.html"><i class="service-icon fa fa-home"></i>&nbsp;Inicio</a>
-      </li>
-    </ul>
+<body>
+
+  <!-- NAVEGADOR --> 
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+    <div class="izquierda"><a href="index.html"><img src="recursos/imagenes/logoNav.png" alt="" width="60" height="40"></a></div>
+    <a class="navbar-brand" href="index.html">N A D I R</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-brand">
+        <li><a href="index.html"><i class="service-icon fa fa-home"></i>&nbsp;Inicio</a></li>
+        <li><a href="bibliotecaVideo.html"><i class="service-icon fa fa-book"></i>&nbsp;Videos</a></li>
+         <li><a href="conocenos.html"><i class="service-icon fa fa-book"></i>&nbsp;Con&oacute;cenos</a></li>
+
+      </ul>
+    </div>
   </div>
 </nav>
-</nav>
-</div>    
-</div>
+  <!-- NAVEGADOR --> 
    <!---//////////////////////////////////////////////////////////////////////////////////-->
+
+     <!-- Maquetación administración Tabla -->
+    <div class="w3-container">
+    <div class="w3-responsive">
+
+        <h1> ADMINISTRACI&Oacute;N DE VIDEOS </h1>
+
+
+        <table class="w3-table-all" id="demo">
+            <thead>
+                <tr>
+                    <th> C&Oacute;DIGO </th>
+                    <th> T&Iacute;TULO </th>
+                    <th> DESCRIPCI&Oacute;N </th>
+                    <th> CR&Eacute;DITOS </th>
+                    <th>URL</th>
+                    <th>PORTADA</th>
+                    <th> EDITAR </th>
+                    <th> ELIMINAR </th>
+                </tr>
+            <tbody></tbody>
+        </table>
+
+    </div>
+</div>
+</div>
+  <!-- Maquetación administración Tabla --> 
+<br>
+   <div class="container">    
+  
+             
+            <button type="button" id="exportar" class="btn btn-info">EXPORTAR</button>
+        </div>
+        
+
+   <!---//////////////////////////////////////////////////////////////////////////////////-->
+   <br>
+   <!-- Maquetación MENU OPCIONES --> 
 <div class="container">
    <div>
         <form method="post" role="form" id="register-form" autocomplete="off" action="submit.html">
             
          <div class="container"> 
-        <div class="col-md-6 col-md-offset-3 "> 
+        <div class="col-md-3 col-md-offset-3 "> 
             <h3>MEN&Uacute; DE OPCIONES</h3>  
            </div>
           
@@ -136,7 +160,7 @@
         </div>
          
               
-         <!-- construyendo preguna-->   
+         <!-- construyendo pregunta-->   
           <div class="col-md-6 col-md-offset-3 ">   
             <div id="tab-1" class="tab hid">
                 <input type="button" id="btnNuevaPregunta" value="Nueva pregunta"/>
@@ -146,44 +170,22 @@
                
       </div>   
   </form>
-      
-       
+         <br />
+    <br />
+        
         <br />
 		<br />
         <div class="container">    
-		<div class="col-md-6 col-md-offset-3 ">
+	        | <button type="button" id="nuevo" class="btn btn-info">NUEVO</button>
             <button type="button" id="guardar" class="btn btn-info">GUARDAR</button>
-			
             <button type="button" id="cancelar" class="btn btn-info">CANCELAR</button>
-		</div>
-        </div>
+		    </div>
+        
 </div>
-		
-	   <!-- Maquetación administración -->
-    <div class="col-md-6 col-md-offset-3 ">
-        <h1> LISTA DE CUENTOS 
-            <button type="button" id="exportar" class="btn btn-info">EXPORTAR</button>
-         </h1>
+		   <!-- Maquetación MENU OPCIONES --> 
+    
+   <!---//////////////////////////////////////////////////////////////////////////////////-->
 
-        <table id="demo">
-            <thead>
-                <tr>
-                    <th> C&Oacute;DIGO </th>
-                    <th> T&Iacute;TULO </th>
-                    <th> DESCRIPCI&Oacute;N </th>
-                    <th> CR&Eacute;DITOS </th>
-                    <th>URL</th>
-                    <th>PORTADA</th>
-                    <th> EDITAR </th>
-                    <th> ELIMINAR </th>
-                </tr>
-            <tbody></tbody>
-        </table>
-
-    </div>
-</div>
-		
-		
 	
 	
     <!-- Footer -->
