@@ -39,19 +39,22 @@ $(function () {
             var pregunta = new Object();
             pregunta.id = "";
             pregunta.pregunta = $(v).find("input.pre").val();
-            pregunta.imagencorrecta= $(v).find("textarea").val();
-            pregunta.imagenincorrecta=$(v).find("textarea").val();;
+             pregunta.imagencorrecta= $(v).find("textarea").val();
+            // pregunta.imagenincorrecta=$(v).find("textarea").val();
+              //pregunta.imagencorrecta= $(v).find("source").attr("src");
+             //pregunta.imagenincorrecta=$(v).find("source").attr("src");
+
             pregunta.audio=$(v).find("source").attr("src");
             pregunta.respuesta = $(v).find("input.res").val();
 
 
-           /* pregunta.opciones = [];
+           pregunta.opciones = [];
             $.each($(v).find("input.opc"), function (j, w) {
                 var opc = new Object();
                 opc.opcion = $(w).val();
                 pregunta.opciones.push(opc);
             });
-            pregunta.respuesta = $(v).find("input.res").val();*/
+            pregunta.respuesta = $(v).find("input.res").val();
 
             preguntas.push(pregunta);
         });
@@ -130,22 +133,24 @@ document.getElementById('tab-0').style.display='none';
         var v = new Object();
         v.pregunta = "";
         v.imagencorrecta="";
-        v.imagenincorrecta="";
+        //v.imagenincorrecta="";
         v.audio="";
 
 
-        // v.opciones = [];
+        v.opciones = [];
+        v.opciones.push(new Object());
+     v.opciones.push(new Object());
         // v.opciones.push(new Object());
-        // v.opciones.push(new Object());
-        // v.opciones.push(new Object());
-        // v.opciones[0].opcion = "";
-        // v.opciones[1].opcion = "";
+         v.opciones[0].opcion = "";
+         v.opciones[1].opcion = "";
         // v.opciones[2].opcion = "";
         v.respuesta = "";
         visualizarPregunta(i, v);
     });
 
 });
+
+
 
 
 /////////////////funcion para mostrar segun el tab (1.- video) , (2.-Pregunta) /////////////////////////////
@@ -197,6 +202,13 @@ var mostrar = function () {
             return false;
         });
     });
+
+
+
+
+
+
+
 //////////////////graba el objeto del localstorage en el id de demo///////////
     $("#demo tbody a.del").click(function (e) {
         var id = $(e.target).attr("value");
@@ -223,8 +235,22 @@ lst.push("<div  style=' overflow-y:scroll;height:200px;width:300px;'>");
     lst.push(v.pregunta);
     lst.push("'/><br />");
 
+ ///////////////////////////////////////opciones////////////////////////////////
+ 
+
+ lst.push("<label>Opciones:</label>");
+    lst.push("<br />");
+    lst.push("<input id='opc1' type='text' class='opc' value='" + v.opciones[0].opcion + "'/>");
+    lst.push("<br />");
+    lst.push("<input id='opc2' type='text' class='opc' value='" + v.opciones[1].opcion + "'/>");
+    lst.push("<br />");
+
+    // lst.push("<input type='text' class='opc' value='" + v.opciones[2].opcion + "'/>");
+    // lst.push("<br />");
+    lst.push("<br />");   
+
 ////////////////////////////////////////////////////////imagen coreccta/////////////////////////////////    
-lst.push("<label>Imagen Correcta</label> <select img='img-" + i + "'>");
+lst.push("<label>OPCION 1 : </label> <select id='op1' img='img-" + i + "'>");
  $.each(jsonImagenes.archivos, function (i, w) {
         lst.push("<option value='");
         lst.push(jsonImagenes.urlBase + w);
@@ -238,25 +264,26 @@ lst.push("<label>Imagen Correcta</label> <select img='img-" + i + "'>");
     });
  lst.push("</select>");
     lst.push("<img id='img-" + i + "' class='img' src='");
-    lst.push(v.imagencorrecta);
+    //lst.push(v.imagencorrecta);
+
     lst.push("' /><br />");
 ///////////////////////////////////////////////////////image incorrecta//////////////////////////////
-lst.push("<label>Imagen incorrecta</label> <select img='img-" + i + "'>");
- $.each(jsonImagenes.archivos, function (i, w) {
-        lst.push("<option value='");
-        lst.push(jsonImagenes.urlBase + w);
-        lst.push("'");
-        if (v.imagenincorrecta === (jsonImagenes.urlBase + w)) {
-            lst.push("selected='selected'");
-        }
-        lst.push(">");
-        lst.push(w);
-        lst.push("</option>");
-    });
- lst.push("</select>");
-    lst.push("<img id='img-" + i + "' class='img' src='");
-    lst.push(v.imagenincorrecta);
-    lst.push("' /><br />");
+ lst.push("<label>OPCION 2 : </label> <select id='op2' img='img-" + i + "'>");
+  $.each(jsonImagenes.archivos, function (i, x) {
+         lst.push("<option value='");
+         lst.push(jsonImagenes.urlBase + x);
+         lst.push("'");
+         if (v.imagenincorrecta === (jsonImagenes.urlBase + x)) {
+             lst.push("selected='selected'");
+         }
+         lst.push(">");
+         lst.push(x);
+         lst.push("</option>");
+     });
+  lst.push("</select>");
+     lst.push("<img id='img-" + i + "' class='img' src='");
+     //lst.push(v.imagenincorrecta);
+     lst.push("' /><br />");
 
 
 
@@ -297,9 +324,17 @@ lst.push("<input type='text' class='res' value='" + v.respuesta + "'/>");
     $.each(pag.find("select"), function (i, v) {
         $(v).change(function (e) {
             var img = $(e.target).attr("img");
+            var idopc = $(e.target).attr("id");
+                alert(idopc);
             if (typeof img !== "undefined") {
-                $("#" + img).attr("src", $(e.target).val())
-            }
+
+                $("#" + img).attr("src", $(e.target).val());     
+                if (idopc == "op1") {                               
+                    document.getElementById("opc1").value=$(e.target).val();
+                }else{                                
+                    document.getElementById("opc2").value=$(e.target).val();
+                }
+             }
 
             var aud = $(e.target).attr("aud");
             if (typeof aud !== "undefined") {
