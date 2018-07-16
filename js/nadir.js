@@ -40,7 +40,7 @@ $(function () {
             pregunta.id = "";
             pregunta.pregunta = $(v).find("input.pre").val();
              pregunta.imagencorrecta= $(v).find("textarea").val();
-            // pregunta.imagenincorrecta=$(v).find("textarea").val();
+            pregunta.imagenincorrecta=$(v).find("textarea").val();
               //pregunta.imagencorrecta= $(v).find("source").attr("src");
              //pregunta.imagenincorrecta=$(v).find("source").attr("src");
 
@@ -65,7 +65,7 @@ console.log(obj.preguntas);
 
 
         if (!(obj.codigo)) {
-            alert("Debe ingresar el código del cuento.");
+            alert("Debe ingresar el cÃ³digo del cuento.");
             return;
         }
 
@@ -133,7 +133,7 @@ document.getElementById('tab-0').style.display='none';
         var v = new Object();
         v.pregunta = "";
         v.imagencorrecta="";
-        //v.imagenincorrecta="";
+        v.imagenincorrecta="";
         v.audio="";
 
 
@@ -229,7 +229,7 @@ var mostrar = function () {
 var visualizarPregunta= function(i,v){
 
 var lst = [];
-lst.push("<div  style=' overflow-y:scroll;height:200px;width:300px;'>");
+lst.push("<div  style=' overflow-y:scroll;height:200px;width:900px;'>");
     lst.push("<label>Pregunta#</label> <input type='text' class='npre' value='" + (i + 1) + "' /><br />");
     lst.push("<label>Pregunta</label> <input type='text' class='pre' value='");
     lst.push(v.pregunta);
@@ -268,7 +268,7 @@ lst.push("<label>OPCION 1 : </label> <select id='op1' img='img-" + i + "'>");
 
     lst.push("' /><br />");
 ///////////////////////////////////////////////////////image incorrecta//////////////////////////////
- lst.push("<label>OPCION 2 : </label> <select id='op2' img='img-" + i + "'>");
+ lst.push("<label>OPCION 2 : </label> <select id='op2' img='img1-" + i + "'>");
   $.each(jsonImagenes.archivos, function (i, x) {
          lst.push("<option value='");
          lst.push(jsonImagenes.urlBase + x);
@@ -281,7 +281,7 @@ lst.push("<label>OPCION 1 : </label> <select id='op1' img='img-" + i + "'>");
          lst.push("</option>");
      });
   lst.push("</select>");
-     lst.push("<img id='img-" + i + "' class='img' src='");
+     lst.push("<img id='img1-" + i + "' class='img' src='");
      //lst.push(v.imagenincorrecta);
      lst.push("' /><br />");
 
