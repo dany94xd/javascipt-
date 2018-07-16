@@ -1,1 +1,1 @@
-var datosAudio = '{"archivos":["cuento1_audio1.mp3","cuento1_audio2.mp3","cuento1_audio3.mp3","cuento1_audio4.mp3","cuento2.mp3","cuento2_audio1.mp3","cuento2_audio2.mp3","cuento2_audio3.mp3","cuento2_audio4.mp3","cuento3.mp3","cuento3_audio1.mp3","cuento3_audio2.mp3","cuento3_audio3.mp3","cuento3_audio4.mp3"]}';
+var datosAudio = '{"archivos":["pregunta_1_1.mp3","pregunta_1_2.mp3","pregunta_2_1.mp3","pregunta_2_2.mp3","pregunta_3_1.mp3"]}';
