@@ -38,7 +38,8 @@ var mostrarHtml = function () {
     var audio = objJSON.contenido[0].video[indexVideo].preguntas[0].audio;
     var linea_audio = "<audio src='"+ audio+"'' controls autoplay></audio> ";    
     var resp = objJSON.contenido[0].video[indexVideo].preguntas[0].respuesta;
-    resp = resp - 1;    
+  resp = resp - 1;
+  //alert(resp);    
     var opciones_img = "";
     $.each(objJSON.contenido[0].video[indexVideo].preguntas[0].opciones, function (index, value) { //"<td>" + "</td>"
         
@@ -57,13 +58,15 @@ var mostrarHtml = function () {
     $.each($("#opciones img.imagen"), function (i, v) {
         $(v).click(function (e) {
             indexImagen = $(e.target).attr("id");
+            //alert(indexImagen);
             if(indexImagen == resp){
-                var a = document.getElementById("ganar");
-                a.play();
-                //alert("¡¡¡¡FELICIDADES!!!!");
+                var r = document.getElementById("ganar");
+                //alert(a)
+                r.play();
+                alert("¡¡¡¡FELICIDADES!!!!");
             }else{
-                var p = document.getElementById("perder");
-                p.play();
+                var s = document.getElementById("perder");
+                s.play();
                 //alert("¡¡¡¡VUELVE A INTENTARLO!!!!");
             }
             
