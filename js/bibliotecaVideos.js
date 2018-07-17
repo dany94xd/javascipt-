@@ -17,10 +17,7 @@ $(function () {
 
 });
 //para poner link 
-function linkear(urlVideo){
-    
-   // alert('OK...')
-    //let codigo =$('#tabla tr').find('td:eq(1)').text();
+function linkear(urlVideo){    
     let win= window.open("", urlVideo, "width=500, height=500");
     win.document.body.innerHTML=urlVideo;
 }
@@ -46,8 +43,9 @@ var mostrarHtml = function () {
     $.each($("#portadas img.imagen"), function (i, v) {
         $(v).click(function (e) {
             urlVideo = $(e.target).attr("alt");
-            indexVideo = $(e.target).attr("id");
+            indexVideo = $(e.target).attr("id");           
             var win= window.open("AulaVideo.html",urlVideo);
+
             //win.document.body.innerHTML=urlVideo;
             document.getElementById("urlVideo").innerHTML=urlVideo;
             document.getElementById("indexVideo").innerHTML=indexVideo;

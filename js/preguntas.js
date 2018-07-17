@@ -21,10 +21,7 @@ $(function () {
 
 });
 //para poner link 
-function linkear(urlVideo){
-    
-   // alert('OK...')
-    //let codigo =$('#tabla tr').find('td:eq(1)').text();
+function linkear(urlVideo){    
     let win= window.open("", urlVideo, "width=500, height=500");
     win.document.body.innerHTML=urlVideo;
 }
@@ -50,9 +47,7 @@ var mostrarHtml = function () {
     $("#opciones").append(opciones_img);
 
     $("#caja").html("");
-    $("#caja").append(linea_audio);
-
-    
+    $("#caja").append(linea_audio); 
 
 
     $.each($("#opciones img.imagen"), function (i, v) {
@@ -71,7 +66,7 @@ var mostrarHtml = function () {
                 s.play();
                 //alert("¡¡¡¡VUELVE A INTENTARLO!!!!");
             }
-            
+            setTimeout ("var win= window.open('bibliotecaVideo.html');", 5000); 
         });
     });
 }

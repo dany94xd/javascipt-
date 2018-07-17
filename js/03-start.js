@@ -4,7 +4,7 @@ var objJSON = "";
 $(function() {
     objJSON = leerArchivoJSON();
     objJSON = JSON.parse(datos);
- grabarArchivoJSON(datos);
+    grabarArchivoJSON(datos);
 });
 
 var leerArchivoJSON = function () {
@@ -25,8 +25,7 @@ var grabarArchivoJSON = function (datos) {
         datos = new Object();
         datos.contenido = [];
         datos.contenido[0] = new Object();
-        datos.contenido[0].video = [];
-        //alert(datos.contenido[0].cuento);
+        datos.contenido[0].video = [];        
         localStorage.setItem("videos", JSON.stringify(datos));
     } else {
         localStorage.setItem("videos", JSON.stringify(datos));

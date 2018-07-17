@@ -1,12 +1,9 @@
 var idxVideo= "";
 
 /*Funcion inicial al cargar la pagina*/
-$(function () {
-    
+$(function () {    
     mostrar();
-
-    nuevo();
-    
+    nuevo();    
     $("#nuevo").click(function (e) {
 
  //     document.getElementById('tab-0').style.display='block';
@@ -31,8 +28,6 @@ $(function () {
         obj.creditos = $("#creditos").val();
          obj.url = $("#url").val();
          obj.portada=$("#portada").val();
-
-
 
         var preguntas = [];
         $.each($("#pregunta div"), function (i, v) {
@@ -63,7 +58,6 @@ $(function () {
 
 console.log(obj.preguntas);
 
-
         if (!(obj.codigo)) {
             alert("Debe ingresar el código del cuento.");
             return;
@@ -81,7 +75,7 @@ console.log(obj.preguntas);
  //     document.getElementById('tab-0').style.display='none';
  // document.getElementById('tab-1').style.display='none';
 
- ocultartabla();
+    ocultartabla();
         mostrar();
 
         nuevo();
@@ -94,7 +88,7 @@ console.log(obj.preguntas);
  // document.getElementById('tab-0').style.display='block';
  // document.getElementById('tab-1').style.display='block';
 
-  ocultartabla();
+    ocultartabla();
         nuevo();
         return false;
     });
@@ -139,10 +133,10 @@ document.getElementById('tab-0').style.display='none';
 
         v.opciones = [];
         v.opciones.push(new Object());
-     v.opciones.push(new Object());
+        v.opciones.push(new Object());
         // v.opciones.push(new Object());
-         v.opciones[0].opcion = "";
-         v.opciones[1].opcion = "";
+        v.opciones[0].opcion = "";
+        v.opciones[1].opcion = "";
         // v.opciones[2].opcion = "";
         v.respuesta = "";
         visualizarPregunta(i, v);
@@ -204,23 +198,13 @@ var mostrar = function () {
     });
 
 
-
-
-
-
-
 //////////////////graba el objeto del localstorage en el id de demo///////////
     $("#demo tbody a.del").click(function (e) {
         var id = $(e.target).attr("value");
         idxVideo = id;
-
-        //var cuento = objJSON.contenido[0].cuento[id];
         objJSON.contenido[0].video.splice(id, 1);
-
         grabarArchivoJSON(objJSON);
-
         mostrar();
-
         return false;
     });
 }
@@ -244,9 +228,6 @@ lst.push("<div  style=' overflow-y:scroll;height:200px;width:900px;'>");
     lst.push("<br />");
     lst.push("<input id='opc2' type='text' class='opc' value='" + v.opciones[1].opcion + "'/>");
     lst.push("<br />");
-
-    // lst.push("<input type='text' class='opc' value='" + v.opciones[2].opcion + "'/>");
-    // lst.push("<br />");
     lst.push("<br />");   
 
 ////////////////////////////////////////////////////////imagen coreccta/////////////////////////////////    
@@ -310,7 +291,6 @@ lst.push("<input type='text' class='res' value='" + v.respuesta + "'/>");
         lst.push("</option>");
     });
     lst.push("</select>");
-
     lst.push("<audio controls=''><source id='aud-" + i + "' src='");
     lst.push(v.audio);
     lst.push("' type='audio/mpeg'></audio>");
@@ -325,9 +305,8 @@ lst.push("<input type='text' class='res' value='" + v.respuesta + "'/>");
         $(v).change(function (e) {
             var img = $(e.target).attr("img");
             var idopc = $(e.target).attr("id");
-                alert(idopc);
+                //alert(idopc);
             if (typeof img !== "undefined") {
-
                 $("#" + img).attr("src", $(e.target).val());     
                 if (idopc == "op1") {                               
                     document.getElementById("opc1").value=$(e.target).val();
@@ -339,7 +318,6 @@ lst.push("<input type='text' class='res' value='" + v.respuesta + "'/>");
             var aud = $(e.target).attr("aud");
             if (typeof aud !== "undefined") {
                 var pd = $("#" + aud).parents("audio");
-
                 var lst = [];
                 lst.push("<audio controls=''><source id='" + aud + "' src='");
                 lst.push($(e.target).val());
@@ -355,8 +333,6 @@ lst.push("<input type='text' class='res' value='" + v.respuesta + "'/>");
 /////////////////////nuevo elemento /////////////////////////////////
 
 var nuevo = function () {
-
-
     idxVideo = "";
     $("#codigo").val("");
     $("#titulo").val("");
