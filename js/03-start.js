@@ -1,9 +1,10 @@
+//var datos='{"contenido":[{"video":[{"codigo":"1","titulo":"GRANJA","descripcion":"VISITA A LA GRANJA","creditos":"HECTOR","url":"recursos/video/video_1.mp4","portada":"recursos/imagenes/imagenP01.jpg","preguntas":[{"id":"1","pregunta":"pregunta 1 video 1","audio":"recursos/audios/pregunta_1_1.mp3","opciones":[{"opcion":"recursos/imagenes/imagen_1_1_1.jpg"},{"opcion":"recursos/imagenes/imagen_2_1_1.jpg"}],"respuesta":"2"},{"id":"2","pregunta":"pregunta 2 video 1","audio":"recursos/audios/pregunta_2_1.mp3","opciones":[{"opcion":"recursos/imagenes/imagen_3_1_1.jpg"},{"opcion":"recursos/imagenes/imagen_4_1_1.jpg"}],"respuesta":"2"},{"id":"3","pregunta":"pregunta 3 video 1","audio":"recursos/audios/pregunta_3_1.mp3","opciones":[{"opcion":"recursos/imagenes/imagen_5_1_1.jpg"},{"opcion":"recursos/imagenes/imagen_4_1_1.jpg"}],"respuesta":"1"}]},{"codigo":"2","titulo":"VOCALES","descripcion":"APRENDIENDO VOCALES","creditos":"HECTOR","url":"recursos/video/video_2.mp4","portada":"recursos/imagenes/imagenP02.jpg","preguntas":[{"id":"1","pregunta":"pregunta 1 video 2","audio":"recursos/audios/pregunta_1_2.mp3","opciones":[{"opcion":"recursos/imagenes/imagen_3_2_1.png"},{"opcion":"recursos/imagenes/imagen_1_2_1.png"}],"respuesta":"2"},{"id":"2","pregunta":"pregunta 2 video 2","audio":"recursos/audios/pregunta_2_2.mp3","opciones":[{"opcion":"recursos/imagenes/imagen_5_2_1.png"},{"opcion":"recursos/imagenes/imagen_2_2_1.png"}],"respuesta":"1"}]}]}]}';
 
 var objJSON = "";
 
 $(function() {
     objJSON = leerArchivoJSON();
-    objJSON = JSON.parse(datos);
+    //objJSON = JSON.parse(datos);
     grabarArchivoJSON(datos);
 });
 

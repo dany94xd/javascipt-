@@ -1,8 +1,4 @@
-
-
-
-
-  
+ 
 
 window.onload = function(){
   var urlVideo = window.opener.document.getElementById("urlVideo").innerHTML;

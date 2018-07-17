@@ -39,7 +39,8 @@ $(function () {
               //pregunta.imagencorrecta= $(v).find("source").attr("src");
              //pregunta.imagenincorrecta=$(v).find("source").attr("src");
 
-            pregunta.audio=$(v).find("source").attr("src");
+            //pregunta.audio=$(v).find("source").attr("src");
+            pregunta.audio = $(v).find("input.au").val();
             pregunta.respuesta = $(v).find("input.res").val();
 
 
@@ -144,9 +145,6 @@ document.getElementById('tab-0').style.display='none';
 
 });
 
-
-
-
 /////////////////funcion para mostrar segun el tab (1.- video) , (2.-Pregunta) /////////////////////////////
 var mostrar = function () {
     $.each($("#tabs a"), function (i, v) {
@@ -213,7 +211,7 @@ var mostrar = function () {
 var visualizarPregunta= function(i,v){
 
 var lst = [];
-lst.push("<div  style=' overflow-y:scroll;height:200px;width:900px;'>");
+lst.push("<div  style=' overflow-y:scroll;height:400px;width:900px;'>");
     lst.push("<label>Pregunta#</label> <input type='text' class='npre' value='" + (i + 1) + "' /><br />");
     lst.push("<label>Pregunta</label> <input type='text' class='pre' value='");
     lst.push(v.pregunta);
@@ -222,7 +220,7 @@ lst.push("<div  style=' overflow-y:scroll;height:200px;width:900px;'>");
  ///////////////////////////////////////opciones////////////////////////////////
  
 
- lst.push("<label>Opciones:</label>");
+ lst.push("<label>Opciones (Seleccione o Escriba la URL):</label>");
     lst.push("<br />");
     lst.push("<input id='opc1' type='text' class='opc' value='" + v.opciones[0].opcion + "'/>");
     lst.push("<br />");
@@ -273,13 +271,17 @@ lst.push("<label>OPCION 1 : </label> <select id='op1' img='img-" + i + "'>");
  lst.push("<br />");
  lst.push("<br />");
  lst.push("<label>Respuesta:</label>");
-lst.push("<input type='text' class='res' value='" + v.respuesta + "'/>");
+ lst.push("<input type='text' class='res' value='" + v.respuesta + "'/>");
  lst.push("<br />");
 
 /////////////////////////////////////////////////audio pregunta////////////////////////////////
+  lst.push("<label>Audio Pregunta (Seleccione o Escrina la URL)</label>");
+ lst.push("<input type='text' class='au' id='au' value='" + v.audio + "'/>");
+ lst.push("<br />");
 
-  lst.push("<label>Audio Pregunta</label> <select aud='aud-" + i + "'>");
-    $.each(jsonAudio.archivos, function (i, w) {
+  lst.push("<label></label> <select aud='aud-" + i + "'>");
+  
+       $.each(jsonAudio.archivos, function (i, w) {
         lst.push("<option value='");
         lst.push(jsonAudio.urlBase + w);
         lst.push("'");
@@ -317,12 +319,14 @@ lst.push("<input type='text' class='res' value='" + v.respuesta + "'/>");
 
             var aud = $(e.target).attr("aud");
             if (typeof aud !== "undefined") {
+
                 var pd = $("#" + aud).parents("audio");
                 var lst = [];
                 lst.push("<audio controls=''><source id='" + aud + "' src='");
                 lst.push($(e.target).val());
                 lst.push("' type='audio/mpeg'></audio>");
                 pd.replaceWith($(lst.join("")));
+                document.getElementById("au").value=$(e.target).val();
             }
         });
     });

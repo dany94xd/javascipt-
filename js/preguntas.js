@@ -34,6 +34,7 @@ var mostrarHtml = function () {
     indexVideo = window.opener.document.getElementById("indexVideo").innerHTML; 
     document.getElementById("indexVideo").innerHTML=indexVideo;
     var audio = objJSON.contenido[0].video[indexVideo].preguntas[0].audio;
+    //alert(audio);
     var linea_audio = "<audio src='"+ audio+"'' controls autoplay></audio> ";    
     var resp = objJSON.contenido[0].video[indexVideo].preguntas[0].respuesta;
   resp = resp - 1;
