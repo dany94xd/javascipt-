@@ -60,11 +60,13 @@ var mostrarHtml = function () {
             indexImagen = $(e.target).attr("id");
             //alert(indexImagen);
             if(indexImagen == resp){
+                //alert("¡¡¡¡FELICIDADES!!!!");
                 var r = document.getElementById("ganar");
                 //alert(a)
                 r.play();
-                alert("¡¡¡¡FELICIDADES!!!!");
+                
             }else{
+               // alert("¡¡¡¡VUELVE A INTENTARLO!!!!");
                 var s = document.getElementById("perder");
                 s.play();
                 //alert("¡¡¡¡VUELVE A INTENTARLO!!!!");
