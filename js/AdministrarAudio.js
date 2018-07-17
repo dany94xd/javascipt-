@@ -4,7 +4,7 @@ var jsonAudio = "";
 $(function() {
     jsonAudio = leerArchivoJSONAudio();
     //jsonAudio.urlBase = location.protocol + "//" + location.host + "/recursos/audio/";
-    jsonAudio.urlBase = "recursos/audio/";
+    jsonAudio.urlBase = "recursos/audios/";
 
     if (jsonAudio.archivos.length === 0) {
         jsonAudio = JSON.parse(datosAudio);
@@ -16,7 +16,7 @@ var leerArchivoJSONAudio = function () {
     var datos = localStorage.getItem("audio")
     if (datos === null) {
         datos = new Object();
-        datos.urlBase = location.protocol + "//" + location.host + "/recursos/audio/";
+        datos.urlBase = location.protocol + "//" + location.host + "/recursos/audios/";
         datos.archivos = [];
         localStorage.setItem("audio", JSON.stringify(datos));
     } else {
@@ -29,7 +29,7 @@ var leerArchivoJSONAudio = function () {
 var grabarArchivoJSONAudio = function (datos) {
     if (datos === null) {
         datos = new Object();
-        datos.urlBase = location.protocol + "//" + location.host + "/recursos/audio/";
+        datos.urlBase = location.protocol + "//" + location.host + "/recursos/audios/";
         datos.archivos = [];
         localStorage.setItem("audio", JSON.stringify(datos));
     } else {
