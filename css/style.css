@@ -832,3 +832,9 @@ a:hover + div {
    display:none;
     border:1px solid #f9f9f9;
 }
+.flotante{
+  display:scroll;
+  position: fixed;
+  bottom: 320px;
+  right: 0px;
+}

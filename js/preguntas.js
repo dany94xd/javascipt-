@@ -21,17 +21,18 @@ $(function () {
 
 });
 //para poner link 
-function linkear(urlVideo){    
+/*function linkear(urlVideo){    
     let win= window.open("", urlVideo, "width=500, height=500");
     win.document.body.innerHTML=urlVideo;
 }
 
-$('#index').click(linkear);
+$('#index').click(linkear);*/
 
 
 //carga de div con las imagenes correspondientes
 var mostrarHtml = function () {
     indexVideo = window.opener.document.getElementById("indexVideo").innerHTML; 
+    document.getElementById("indexVideo").innerHTML=indexVideo;
     var audio = objJSON.contenido[0].video[indexVideo].preguntas[0].audio;
     var linea_audio = "<audio src='"+ audio+"'' controls autoplay></audio> ";    
     var resp = objJSON.contenido[0].video[indexVideo].preguntas[0].respuesta;

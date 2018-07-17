@@ -28,6 +28,9 @@ $('#index').click(linkear);
 
 var mostrarHtml = function () {
 
+    //indexVideo = window.opener.document.getElementById("indexVideo").innerHTML; 
+    document.getElementById("indexVideo").innerHTML=indexVideo;
+
     var bibliotecaTable = "";
 
     $.each(objJSON.contenido[0].video, function (index, value) { //"<td>" + "</td>"
@@ -44,7 +47,7 @@ var mostrarHtml = function () {
         $(v).click(function (e) {
             urlVideo = $(e.target).attr("alt");
             indexVideo = $(e.target).attr("id");           
-            var win= window.open("AulaVideo.html",urlVideo);
+            var win= window.open("AulaVideo.html");
 
             //win.document.body.innerHTML=urlVideo;
             document.getElementById("urlVideo").innerHTML=urlVideo;
