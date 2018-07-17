@@ -827,3 +827,8 @@ a:hover + div {
 .admvideo{
   margin-left: 200px; 
 }
+
+.oculta{
+   display:none;
+    border:1px solid #f9f9f9;
+}
