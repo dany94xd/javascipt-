@@ -196,7 +196,7 @@ var mostrar = function () {
     });
 
 
-//////////////////graba el objeto del localstorage en el id de demo///////////
+//////////////////eliminar todo el video///////////
     $("#demo tbody a.del").click(function (e) {
         var id = $(e.target).attr("value");
         idxVideo = id;
@@ -205,6 +205,15 @@ var mostrar = function () {
         mostrar();
         return false;
     });
+
+//////////////////eliminar todas las preguntas///////////
+   /*      $("#btnEliminarPregunta").click(function (e) {
+       $("#pregunta").remove();
+    //   grabarArchivoJSON(objJSON);
+    });
+
+*/
+
 }
 ///////////////////////////////////////////////////////////funcion para contrui la nueva pregunta///////////////////////////////////////////////////////////////////////////
 
