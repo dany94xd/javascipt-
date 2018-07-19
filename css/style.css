@@ -861,5 +861,7 @@ iframe{
 }
 
 input{
-  background-color: dimgray;
+  background-color:#f5f5dc;
+   width: 300;
+ height: 50;
 }

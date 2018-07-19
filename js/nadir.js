@@ -220,8 +220,12 @@ var mostrar = function () {
 var visualizarPregunta= function(i,v){
 
 var lst = [];
-lst.push("<div  style=' overflow-y:scroll;height:400px;width:900px;'>");
+
+    lst.push("<br />");
+lst.push("<br />");
+lst.push("<div class='hijo' id='p"+i+"' style=' overflow-y:scroll;height:400px;width:900px;'>");
     lst.push("<label>Pregunta#</label> <input type='text' class='npre' value='" + (i + 1) + "' /><br />");
+    lst.push("<br />");
     lst.push("<label>Pregunta</label> <input type='text' class='pre' value='");
     lst.push(v.pregunta);
     lst.push("'/><br />");
@@ -285,6 +289,7 @@ lst.push("<label>OPCION 1 : </label> <select id='op1' img='img-" + i + "'>");
 
 /////////////////////////////////////////////////audio pregunta////////////////////////////////
   lst.push("<label>Audio Pregunta (Seleccione o Escrina la URL)</label>");
+  lst.push("<br />");
  lst.push("<input type='text' class='au' id='au' value='" + v.audio + "'/>");
  lst.push("<br />");
 
@@ -302,9 +307,18 @@ lst.push("<label>OPCION 1 : </label> <select id='op1' img='img-" + i + "'>");
         lst.push("</option>");
     });
     lst.push("</select>");
+    lst.push("<br />");
     lst.push("<audio controls=''><source id='aud-" + i + "' src='");
+    lst.push("<br />");
     lst.push(v.audio);
+    lst.push("<br />");
     lst.push("' type='audio/mpeg'></audio>");
+
+//PARA ELIMINAR C/P
+    lst.push("<br />");
+     lst.push("<br />");
+   //  lst.push("<input type='button'  style=' color:dimgray; background:orange;' id='abcborrar"+i+"'  class='dele' value='Eliminar " + i +"'/>")
+  //  alert(i);
 
     lst.push("</div><br />");
 
@@ -338,6 +352,24 @@ lst.push("<label>OPCION 1 : </label> <select id='op1' img='img-" + i + "'>");
                 document.getElementById("au").value=$(e.target).val();
             }
         });
+    });
+
+
+    /////////////////////////////////////////////////eliminar cada pregunta////////////////////////////////
+     $("#pregunta  input.dele").click(function (e) {
+        alert("estoyaqui");
+        var id = $(e.target).attr("value");
+        alert(id);
+            var ax = id.split(" ");
+            var nn= ax[1];
+            alert(nn);
+
+        $("#p"+nn).remove();
+       grabarArchivoJSON(objJSON);
+
+       
+        mostrar();
+        return false;
     });
 
 
