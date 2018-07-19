@@ -1,7 +1,6 @@
 ﻿var indexVideo = "";
 var idxVideoPagina = "";
 var urlVideo = "";
-
 /*Funcion inicial al cargar la pagina*/
 $(function () {
     
@@ -36,7 +35,7 @@ var mostrarHtml = function () {
     $.each(objJSON.contenido[0].video, function (index, value) { //"<td>" + "</td>"
         //alert (index);
         //bibliotecaTable += "<div class='responsive'><div class='gallery' id ='" + index + "'><a  href='AulaVideo.html' onclick='alert('ooooola')'><img src='" + value.portada + "'></a></div></div>";
-        bibliotecaTable += "<div class='responsive'><div class='gallery'><img id='"+index+"'class='imagen' src='" + value.portada + "' alt='"+ value.url +"'></div></div>";
+        bibliotecaTable += "<div class='responsive'><div class='gallery'><a id='lkvid'><img id='"+index+"'class='imagen' src='" + value.portada + "' alt='"+ value.url +"'></a></div></div>";
     });
 
     $("#portadas").html("");
@@ -45,13 +44,18 @@ var mostrarHtml = function () {
 
     $.each($("#portadas img.imagen"), function (i, v) {
         $(v).click(function (e) {
-            urlVideo = $(e.target).attr("alt");
-            indexVideo = $(e.target).attr("id");           
-            var win= window.open("AulaVideo.html");
 
+            urlVideo = $(e.target).attr("alt");
+            indexVideo = $(e.target).attr("id");    
+            localStorage.idv=indexVideo;
+            localStorage.urlv=urlVideo;
+            //alert(localStorage.urlv);          
             //win.document.body.innerHTML=urlVideo;
             document.getElementById("urlVideo").innerHTML=urlVideo;
             document.getElementById("indexVideo").innerHTML=indexVideo;
+            //document.getElementById("lkvid").setAttribute("href","AulaVideo.html");
+            var win= window.location.href="AulaVideo.html"; 
+            //var win= window.open("AulaVideo.html"); 
             //win.document.body.innerHTML=urlVideo;
             
         });

@@ -349,5 +349,3 @@ var nuevo = function () {
     // document.getElementById('tab-0').style.display='block';
  //document.getElementById('tab-1').style.display='block';
 };
-
-
